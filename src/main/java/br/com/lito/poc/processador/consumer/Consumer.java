@@ -24,21 +24,21 @@ public class Consumer {
 
 	@KafkaListener(topics = "${topic.kafka.coleta}", groupId = "${topic.kafka.grupo.coleta}")
 	public void consumer(String message) throws IOException {
-		log.info("Consumindo: {}", message);
+//		log.info("Consumindo: {}", message);
 
 		final StopWatch sw = new StopWatch();
 
-		sw.start("Converter mensagem");
+//		sw.start("Converter mensagem");
 		ColetaDto coletaDto = JsonUtils.paraObjViaJson(message, new TypeReference<ColetaDto>() {
 		});
-		sw.stop();
+//		sw.stop();
 
-		sw.start("Salvar na base");
+//		sw.start("Salvar na base");
 		service.salvar(coletaDto);
-		sw.stop();
+//		sw.stop();
 
-		log.debug("Fim; {}", sw.prettyPrint());
-		log.info("Fim; {}", sw.shortSummary());
+//		log.debug("Fim; {}", sw.prettyPrint());
+//		log.info("Fim; {}", sw.shortSummary());
 	}
 
 	@KafkaListener(topics = "${topic.kafka.coleta_lista}", groupId = "${topic.kafka.grupo.coleta_lista}")
