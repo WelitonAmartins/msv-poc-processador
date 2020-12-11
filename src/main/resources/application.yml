@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: msv-poc-processador
+  profiles:
+    active: dev
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    properties:
+      hibernate: 
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        ddl-auto: update
+    show-sql: true 
+  datasource:
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    baseline-on-migrate: true
+    
+## Topicos Kafka    
+topic:
+  kafka:
+    coleta: FILA_COLETA   
+    coleta_lista: FILA_COLETA_LISTA   
+    grupo:
+      coleta: grupo_coleta
+      coleta_lista: grupo_coleta_lista
